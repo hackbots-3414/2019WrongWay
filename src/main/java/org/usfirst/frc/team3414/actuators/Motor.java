@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3414.actuators;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import org.usfirst.frc.team3414.util.RotationalDirection;
@@ -89,6 +90,15 @@ public class Motor extends MotorBase
 	{
 		talon.configPeakCurrentLimit(amps, 10);
 	}
+
+	public void setbrake(boolean brake) {
+		if(brake){
+		talon.setNeutralMode(NeutralMode.Brake);
+	}
+	else{
+		talon.setNeutralMode(NeutralMode.Coast);
+	}
+}
 
 
 }
